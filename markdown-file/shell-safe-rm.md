@@ -9,7 +9,6 @@
 - 创建一个用来存放要被我们删除的文件夹存放地：`cd $home && mkdir .trash`
 - 赋予最高权限（个人习惯）：`chmod 777 .trash`
 - 如果你使用 bash，你需要修改你的 home 目录下的：`.bashrc`
-- 我使用的是 zsh，所以我修改：`vim .zshrc`，在文件的最后面增加下面内容：
 
 ```
 # rm transform
@@ -34,22 +33,16 @@ function rm() {
             echo 'Missing Args'
         return
     fi
-    echo "Hi, Trashing" $1 "to /root/.trash"
-    mv $1 $HOME/.trash/$prefix/$hour
+    echo "Hi, Trashing" ${!#} "to /root/.trash"
+    mv ${!#} $HOME/.trash/$prefix/$hour
 }
 ```
 
 - 刷新配置：`source ~/.zshrc`
 - 然后断开终端，重新连接
-- 此时如果你使用：`rm -rf a.txt` 会出现这样的提示：
 
-```
-Hi, Trashing -rf to /root/.trash
-mv: invalid option -- 'r'
-Try 'mv --help' for more information.
-```
 
-- 现在我们删除一个测试文件：`rm a.txt`，会事显示：`Hi, Trashing a.txt to /root/.trash`
+- 现在我们删除一个测试文件：`rm a.txt` 或者 `rm -rf a.txt`，会事显示：`Hi, Trashing a.txt to /root/.trash`
 - 因为我们上面的 shell 每次触发 rm 明白的时候都会去删除一个月前的目录，所以就不需要定时器来删除 .trash 里面的文件了。
 - 如果你要强制删除，清空 .trash 目录，可以使用真正的 rm 命令：`/usr/bin/rm -rf ~/.trash/*`
 
