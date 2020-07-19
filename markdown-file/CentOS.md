@@ -7,6 +7,7 @@
 - CentOS 官网下载：<https://www.centos.org/download/>
 - CentOS 官网下载（含有旧版本）：<https://wiki.centos.org/Download>
 - CentOS 国内镜像下载：<http://isoredirect.centos.org/centos/6/isos/x86_64/>
+- CentOS 国内镜像下载：<https://mirrors.tuna.tsinghua.edu.cn/centos/>
 - 版本更新记录：<https://wiki.centos.org/Manuals/ReleaseNotes>
 
 
